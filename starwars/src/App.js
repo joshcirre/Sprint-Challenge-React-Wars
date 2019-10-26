@@ -1,18 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { get } from './utils/getCharacters';
-import './App.css';
+import Header from './components/Header';
+import CharacterContainer from './components/CharacterContainer';
+import PageButton from './components/PageButton';
 
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
+  const [pages, setPages] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [characters, setCharacters] = useState([]);
 
-  // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
+  useEffect(() => {
+    let exists = false;
+    pages.forEach(page => {
+      currentPage === page && (exists = true);
+    });
+    if (!exists) {
+      get(`https://swapi.co/api/people/?page=${currentPage}`)
+        .then(res => {
+          setCharacters(list => [
+            ...list,
+            {
+              next: res.data.next,
+              previous: res.data.previous,
+              results: res.data.results
+            }
+          ]);
+          setPages(pages => [...pages, currentPage]);
+        })
+        .catch(err => console.log(err));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage]);
+
+  console.log(characters);
 
   return (
     <div className='App'>
-      <h1 className='Header'>React Wars</h1>
+      <Header>
+        <h2>Current Page: {currentPage}</h2>
+        <PageButton
+          direction='previous'
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+        <PageButton
+          direction='next'
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      </Header>
+      <CharacterContainer characters={characters[currentPage - 1]} />
     </div>
   );
 };

@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Poller+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: url('./sw-bg.jpg');
+  background: url('./sw-bg.jpg') no-repeat center center fixed;
   background-size: cover;
+}
+
+.App {
+  text-align: center;
 }

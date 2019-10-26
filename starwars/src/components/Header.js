@@ -6,6 +6,7 @@ const Header = styled.div`
   font-family: 'Poller One', cursive;
   background-color: black;
   padding-top: 20px;
+  padding-bottom: 20px;
 `;
 
 export default function(props) {

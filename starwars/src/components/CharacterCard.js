@@ -6,6 +6,7 @@ const CharacterCard = styled.div`
   width: 19%;
   border-radius: 5px;
   margin: 1rem;
+  margin-top: 2rem;
 `;
 const Title = styled.div`
   border-bottom: 1px solid black;

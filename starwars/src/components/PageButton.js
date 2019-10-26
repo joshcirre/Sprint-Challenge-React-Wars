@@ -2,8 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  margin: 1rem;
-  padding: 0.2rem;
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #c4221a;
+    color: #FFF;
+    font-family: 'Staatliches', sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+    transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &:hover {
+        background: #b0403a;
+    }
+    &:active {
+        transform: scale(0.95);
+    }
 `;
 
 export default function({ direction, currentPage, setCurrentPage }) {

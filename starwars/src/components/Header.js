@@ -2,8 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Header = styled.div`
-  color: #443e3e;
-  text-shadow: 1px 1px 5px #fff;
+  color: yellow;
+  font-family: 'Poller One', cursive;
+  background-color: black;
+  padding-top: 20px;
 `;
 
 export default function(props) {

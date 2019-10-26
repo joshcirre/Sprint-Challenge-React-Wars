@@ -9,6 +9,8 @@ const CharacterCard = styled.div`
 `;
 const Title = styled.div`
   border-bottom: 1px solid black;
+  font-family: 'Staatliches', cursive;
+  font-size: 1.5rem;
   background-color: white;
   padding: 1rem;
   border-radius: 5px 5px 0 0;

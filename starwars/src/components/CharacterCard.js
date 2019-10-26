@@ -25,7 +25,9 @@ export default function({ character, children }) {
     <CharacterCard>
       <Title>{character.name}</Title>
       <Body>
-        {character.birth_year}
+        Birth Year: {character.birth_year}
+        <br></br>
+        Height: {character.height}
         {children}
       </Body>
     </CharacterCard>
